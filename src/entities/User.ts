@@ -1,6 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
-import { User } from "@prisma/client";
-import { Permitions } from "../interfaces";
+import { User, Permitions } from "@prisma/client";
 
 export class UserEntity implements User {
 

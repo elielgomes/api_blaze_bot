@@ -17,7 +17,7 @@ class CheckUserTokenMiddleware {
       verify(token, secret);
       next();
     } catch (error) {
-      res.status(401).json({ error: "Acess denied!" });
+      return res.status(401).json({ error: "Acess denied!" });
     }
   }
 

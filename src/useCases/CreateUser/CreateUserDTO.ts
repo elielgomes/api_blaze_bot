@@ -1,4 +1,4 @@
-import { Permitions } from "../../interfaces";
+import { Permitions } from "@prisma/client";
 
 export interface ICreateUserRequestDTO {
   username: string;

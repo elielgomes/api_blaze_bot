@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from "express";
+import { Request, Response } from "express";
 import { AuthenticateUserUseCase } from "./AuthenticateUserUseCase";
 
 export class AuthenticateUserController {
@@ -12,8 +12,8 @@ export class AuthenticateUserController {
     const { username, password } = req.body;
 
     try {
-      const authenticationTokens = await this.authenticateUserUseCase.execute({ username, password });
-      res.status(200).json({ ...authenticationTokens });;
+      const authentication = await this.authenticateUserUseCase.execute({ username, password });
+      res.status(200).json({ token: authentication.token, username: authentication.username, permition: authentication.permition });;
     } catch (error) {
       res.status(error.statusCode ?? 401).json({ error: error.message });
     }
