@@ -8,7 +8,7 @@ import findUserByTokenController from "./useCases/FindUserByToken";
 import getRecentHistoryController from "./useCases/GetRecentHistory";
 import getHistoryController from "./useCases/GetHistory";
 import getCurrentRoundController from "./useCases/GetCurrentRound";
-
+import telegramBotController from "./useCases/TelegramBot";
 // Middlewares -----------------------------
 import CheckUserTokenMiddleware from "./middlewares/CheckUserTokenMiddleware";
 import CheckUserIdTokenMiddleware from "./middlewares/CheckUserIdTokenMiddleware";
@@ -19,6 +19,7 @@ export const router = Router();
 //Public Routes ---------------------->>
 router.post("/api/register", (req, res) => createUserController.handle(req, res));
 router.post("/api/login", (req, res) => authenticateUserController.handle(req, res));
+router.post("/api/bot", (req, res) => telegramBotController.handle(req, res));
 router.get("/api/history", (req, res) => getHistoryController.handle(req, res));
 router.get("/api/history/recent", (req, res) => getRecentHistoryController.handle(req, res));
 router.get("/api/history/current", (req, res) => getCurrentRoundController.handle(req, res));

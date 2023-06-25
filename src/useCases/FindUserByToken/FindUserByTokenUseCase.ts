@@ -23,7 +23,6 @@ export class FindUserByTokenUseCase {
     if (!user) {
       throw new CustomHttpException("User don't exists!", 404);
     }
-
     return user
   }
 }
